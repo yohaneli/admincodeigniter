@@ -38,7 +38,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <a href="index.html" class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">Login</a>
+                                <button class="btn waves-effect waves-light border-round gradient-45deg-purple-deep-orange col s12">Login</a>
                                 </div>
                             </div>
                             <div class="row">
