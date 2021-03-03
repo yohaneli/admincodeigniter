@@ -20,6 +20,16 @@ use Psr\Log\LoggerInterface;
 
 class BaseController extends Controller
 {
+
+	public function __construct(){
+		
+		//include helper form
+        helper('form');
+
+		$this->session = \Config\Services::session();
+		$this->session->start();
+	}
+	
 	/**
 	 * An array of helpers to be loaded automatically upon
 	 * class instantiation. These helpers will be available
@@ -27,7 +37,7 @@ class BaseController extends Controller
 	 *
 	 * @var array
 	 */
-	protected $helpers = ['form'];
+	protected $helpers = [];
 
 	/**
 	 * Constructor.
@@ -45,5 +55,10 @@ class BaseController extends Controller
 		// Preload any models, libraries, etc, here.
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
+	}
+
+	public function isConnected() {
+
+		
 	}
 }

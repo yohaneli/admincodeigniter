@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\UserModel;
+use App\Controllers\BaseController;
 //use App\Controllers\Register;
 
 class Login extends BaseController
@@ -42,23 +43,29 @@ class Login extends BaseController
             $users = $UserModel->where('userEmail', $this->request->getVar('email'))
                    ->findAll();
 			
-			dd($users);
+                foreach($users as $user) {
 
-        
-			
-            //return redirect()->to('/login');
-        } /* else{
+                    if(password_verify($this->request->getVar('password'),$user['userPassword'])) {
+
+                        var_dump($users);
+
+                        echo "Je suis dans le password verify";
+
+                        $this->session->set(["id"=>[$user["userId"]]]);                      
             
-            $data = [
-                'page_title' => 'Register à wwww.site.com' ,
-                'aff_menu'  => false,
-                'validation' => $this->validator
-            ];
-    
-            echo view('common/HeaderAdmin' , 	$data);
-            echo view('register', $data);
-            echo view('common/FooterSite');
-        }*/
+                        //dd($this->session->get("id"));
+
+                        return redirect()->to('/admin/accueil');
+
+                    }
+
+                }       
+        
+                $this->afficheFormLogin("Se connecter sur ce site",false,$this->validator);
+            
+        }  
+            
+               
          
     }
 

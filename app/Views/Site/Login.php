@@ -16,6 +16,7 @@
                                     <i class="material-icons prefix pt-2">person_outline</i>
                                     <input  type="email"  name="email"  value="">
                                     <label for="email" class="center-align">Saisissez votre adresse mail</label>
+                                   
                                 </div>
                             </div>
                             <div class="row margin">
@@ -23,6 +24,7 @@
                                     <i class="material-icons prefix pt-2">lock_outline</i>
                                     <input type="password" name="password" value="">
                                     <label for="password">Saisissez votre mot de passe</label>
+                                    
                                 </div>
                             </div>
                             <div class="row">
