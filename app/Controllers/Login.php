@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\UserModel;
+//use App\Controllers\Register;
 
 class Login extends BaseController
 {
@@ -11,14 +12,17 @@ class Login extends BaseController
 	{	
 
 		/** exemple de passage de variable a une vue */ 
-		$data = [
+
+        $this->afficheFormLogin("Se connecter sur ce site",false);
+
+		/*$data = [
 			'page_title' => 'Connexion à wwww.site.com' ,
 			'aff_menu'  => false
 		];
 
 		echo view('common/HeaderAdmin' , 	$data);
 		echo view('Site/Login');
-		echo view('common/FooterSite');
+		echo view('common/FooterSite');*/
 	}
 
 	public function connect() {
@@ -58,6 +62,18 @@ class Login extends BaseController
          
     }
 
-	
+	private function afficheFormLogin($pageTitle="",$afficheMenu=false,$validation=null) {
+
+        $data = [
+            'page_title' => $pageTitle ,
+            'aff_menu'  => $afficheMenu,
+            'validation' => $validation
+        ];
+
+        echo view('common/HeaderAdmin' , 	$data);
+        echo view('Site/Login', $data);
+        echo view('common/FooterSite');
+
+    }
 
 }
