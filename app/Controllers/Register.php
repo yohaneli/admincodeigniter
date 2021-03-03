@@ -2,23 +2,27 @@
  
 use CodeIgniter\Controller;
 use App\Models\UserModel;
+
  
-class Register extends Controller
+class Register extends BaseController
 {
 
     
     public function index()
     {
         //include helper form
-        helper('form');
-         $data = [
+        //helper('form');
+
+        $this->afficheFormLogin("S'inscrire sur ce site",false);
+
+        /* $data = [
 			'page_title' => 'Register à wwww.site.com' ,
 			'aff_menu'  => false
 		];
 
 		echo view('common/HeaderAdmin' , 	$data);
         echo view('register', $data);
-		echo view('common/FooterSite');
+		echo view('common/FooterSite');*/
 
        
     }
@@ -26,7 +30,7 @@ class Register extends Controller
     public function save()
     {
         //include helper form
-        helper('form');
+        //helper('form');
         //set rules validation form
         $rules = [
             'name'          => 'required|min_length[3]|max_length[20]',
@@ -45,8 +49,10 @@ class Register extends Controller
             $model->save($data);
             return redirect()->to('/login');
         }else{
+
+            $this->afficheFormLogin("S'inscrire sur ce site",false,$this->validator);
             
-            $data = [
+            /*$data = [
                 'page_title' => 'Register à wwww.site.com' ,
                 'aff_menu'  => false,
                 'validation' => $this->validator
@@ -54,9 +60,24 @@ class Register extends Controller
     
             echo view('common/HeaderAdmin' , 	$data);
             echo view('register', $data);
-            echo view('common/FooterSite');
+            echo view('common/FooterSite');*/
         }
          
+    }
+
+    private function afficheFormLogin($pageTitle="",$affciheMenu=false,$validation=null) {
+
+        $data = [
+            'page_title' => $pageTitle ,
+            'aff_menu'  => $affciheMenu,
+            'validation' => $validation
+        ];
+
+        echo view('common/HeaderAdmin' , 	$data);
+        echo view('register', $data);
+        echo view('common/FooterSite');
+
+
     }
  
 }

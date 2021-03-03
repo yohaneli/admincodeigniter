@@ -39,6 +39,8 @@ class Login extends BaseController
                    ->findAll();
 			
 			dd($users);
+
+        
 			
             //return redirect()->to('/login');
         } /* else{
