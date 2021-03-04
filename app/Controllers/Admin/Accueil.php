@@ -12,7 +12,7 @@ class Accueil extends BaseController
 	{	
 		
 
-			d($this->session->get("id"));
+			//d($this->session->get("id"));
 			//return redirect()->to('/Site/login');
 
 		

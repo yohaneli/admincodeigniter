@@ -48,7 +48,7 @@ class Register extends BaseController
             ];
             $model->save($data);
             return redirect()->to('/login');
-        }else{
+        } else {
 
             $this->afficheFormRegister("S'inscrire sur ce site",false,$this->validator);
             
