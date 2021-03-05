@@ -40,19 +40,19 @@
                                             
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input type="text" name="nom" value="<?php //echo $artiste['nom'] ; ?>">
+                                                    <input type="text" name="nomFilm" value="<?php //echo $artiste['nom'] ; ?>">
                                                     <label for="fn">Nom du Film</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input type="text" name="prenom" value="<?php //echo $artiste['prenom'] ; ?>">
+                                                    <input type="text" name="nomActeur" value="<?php //echo $artiste['prenom'] ; ?>">
                                                     <label for="fn">Nom de l'acteur</label>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input type="number" name="annee" value="<?php //echo $artiste['annee_naissance'] ; ?>">
+                                                    <input type="number" name="nomRole" value="<?php //echo $artiste['annee_naissance'] ; ?>">
                                                     <label for="fn">Nom du rôle</label>
                                                 </div>
                                             </div>

@@ -31,8 +31,8 @@ class Role extends BaseController
 
 			//$artistesModel = new ArtisteModel();
 
-			$listArtistes = $this->rolesModel->findAll();
-			$listArtistes = $this->rolesModel->orderBy('nom_role','ASC');									
+			$listRoles = $this->rolesModel->findAll();
+			$listRoles = $this->rolesModel->orderBy('nom_role','ASC');									
 			//dd($listArtistes);
 
 			/** exemple de passage de variable a une vue */ 
@@ -59,7 +59,7 @@ class Role extends BaseController
 
 	}
 
-	public function edit($idFilm=null , $idActeur) {
+	public function edit($id=null) {
 
 		$data = [
 			'page_title' => 'Edit role' ,
