@@ -22,14 +22,15 @@ class Artiste extends BaseController
 			//$artistesModel = new ArtisteModel();
 
 			$listArtistes = $this->artistesModel->findAll();
-
+			$listArtistes = $this->artistesModel->orderBy('id','DESC');									
 			//dd($listArtistes);
 
 			/** exemple de passage de variable a une vue */ 
 			$data = [
-				'page_title' => 'Connnexion' ,
+				'page_title' => 'Accueil Admin' ,
 				'aff_menu'  => true ,
-				'tabArtistes' => $listArtistes
+				'tabArtistes' => $this->artistesModel->paginate(10),
+				'pager' => $this->artistesModel->pager
 			];
 	
 
@@ -37,11 +38,30 @@ class Artiste extends BaseController
 		echo view('Admin/Artiste/Liste', $data);
 		echo view('common/FooterSite');
 
+		
+
 	}
 
-	public function delete($id) {
+	public function delete($id=0,$page=0) {
 
-		echo " Delete ".$id;
+		$artiste = $this->artistesModel->where('id',$id)->first();
+
+		$this->artistesModel->where('id',$id)->delete();
+
+		return redirect()->to('/admin/artiste/'.$page);
+
+		$data = [
+			'page_title' => 'Connnexion' ,
+			'aff_menu'  => true ,
+			'artiste'  => $artiste
+		];
+
+		
+
+
+	echo view('common/HeaderAdmin' , 	$data);
+	echo view('Admin/Artiste/Edit', $data);
+	echo view('common/FooterSite');
 
 	}
 

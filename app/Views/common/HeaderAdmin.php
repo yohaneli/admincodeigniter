@@ -49,8 +49,7 @@
                         <li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="<?php echo base_url('app-assets/images/avatar/avatar-7.png');?>" alt="avatar"><i></i></span></a></li>
                   
                     </ul>
-                   
-                 
+
                     <!-- profile-dropdown-->
                     <ul class="dropdown-content" id="profile-dropdown">
                         <li><a class="grey-text text-darken-1" href="user-profile-page.html"><i class="material-icons">person_outline</i> Profile</a></li>
@@ -63,6 +62,7 @@
             
             </nav>
         </div>
+        
     </header>
     <!-- END: Header-->
    
@@ -70,6 +70,13 @@
 
     <!-- BEGIN: SideNav-->
     <aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-light navbar-full sidenav-active-rounded">
+    <!-- create invoice button-->
+    <div class="invoice-create-btn">
+                            <a href="app-invoice-add.html" class="btn waves-effect waves-light invoice-create center z-depth-4">
+                                <i class="material-icons">add</i>
+                                <span class="hide-on-small-only">Créer</span>
+                            </a>
+                        </div>
         <div class="brand-sidebar">
             <h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img src="<?php echo base_url('app-assets/images/logo/materialize-logo.png');?>" alt="materialize logo" /><span class="logo-text hide-on-med-and-down">Materialize</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
         </div>
@@ -93,6 +100,17 @@
                         </li>
                         
                         <li><a href="<?php echo base_url("admin/artiste/edit"); ?>"><i class="material-icons">add_circle</i><span data-i18n="Edit">Ajouter</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">movie_filter</i><span class="menu-title" data-i18n="User">Rôles</span><span class="badge badge pill purple float-right mr-10">3</span></a>
+                <div class="collapsible-body">
+                    <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                        <li><a href="<?php echo base_url("admin/role/"); ?>"><i class="tiny material-icons">list</i><span data-i18n="List">Lister</span></a> <!--  class="active"  si le lien est actif -->
+                        </li>
+                        
+                        <li><a href="<?php echo base_url("admin/role/edit"); ?>"><i class="material-icons">add_circle</i><span data-i18n="Edit">Ajouter</span></a>
                         </li>
                     </ul>
                 </div>

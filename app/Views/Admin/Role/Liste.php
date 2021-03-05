@@ -19,13 +19,11 @@
                                         <th></th>
                                         <!-- data table checkbox -->
                                         <th></th>
-                                        <th>
-                                            <span>ID</span>
-                                        </th>
-                                        <th>Nom</th>
-                                        <th>Prénom</th>
-                                        <th>Année de naissance</th>
-                                        <th>Nombre de films</th>
+                                        
+                                        <th>Nom du film (ID)</th>
+                                        <th>Nom de l'acteur (ID)</th>
+                                        <th>Nom du role</th>
+                                        
                                         
                                         <th>Action</th>
                                     </tr>
@@ -33,30 +31,33 @@
 
                                 <tbody>
 
-                                    <?php if (isset($tabArtistes)) {  ?>
+                                    <?php if (isset($tabRoles)) {  ?>
 
-                                    <?php  foreach ($tabArtistes as $tabArtiste) {  ?>
+                                    <?php  foreach ($tabRoles as $tabRole) {  ?>
+
+                                    <?php 
+                                    
+                                    $artistes = $artistesModel->where('id',$tabRole['id_acteur'])->first();
+
+                                    $films = $filmModel->where('id',$tabRole['id_film'])->first();
+                                    
+                                    //dd($films);
+                                    ?>
 
                                     <tr>
                                         <td></td>
                                         <td></td>
                                         <td>
-                                            <a href="app-invoice-view.html"><?php echo $tabArtiste['id'] ; ?></a>
+                                            <a href="app-invoice-view.html"><?php echo $films['titre'] ; ?></a>
                                         </td>
-                                        <td><span class="invoice-amount"> <?php echo $tabArtiste['nom'] ; ?> </span></td>
-                                        <td><small> <?php echo $tabArtiste['prenom'] ; ?> </small></td>
-                                        <td><span class="invoice-customer"> <?php echo $tabArtiste['annee_naissance'] ; ?> </span></td>
-                                        <td>
-                                            <span class="bullet green"></span>
-                                            <small> </small>
-                                        </td>
-                                        
+                                        <td><span class="invoice-amount"> <?php echo $artistes['nom'] ; ?> </span></td>
+                                        <td><small> <?php echo $tabRole['nom_role'] ; ?> </small></td>                                        
                                         <td>
                                             <div class="invoice-action">
-                                                <a href="<?php echo base_url('admin/artiste/edit/'.$tabArtiste['id']) ; ?>" class="invoice-action-edit">
+                                                <a href="<?php echo base_url('admin/role/edit/') ; ?>" class="invoice-action-edit">
                                                     <i class="material-icons">edit</i>
                                                 </a>
-                                                <a href="<?php echo base_url('admin/artiste/delete/'.$tabArtiste['id']) ; ?>" class="invoice-action-view mr-4">
+                                                <a href="<?php echo base_url('admin/role/delete/') ; ?>" class="invoice-action-view mr-4">
                                                     <i class="material-icons">delete</i>
                                                 </a>
                                             </div>
