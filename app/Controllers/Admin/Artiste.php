@@ -69,6 +69,8 @@ class Artiste extends BaseController
 
 		//echo " Edit ".$id;
 
+
+
 		$artiste = $this->artistesModel->where('id',$id)->first();
 
 		//Contrôle si la personne a bien posté le formulaire
@@ -84,15 +86,36 @@ class Artiste extends BaseController
 					'annee'      => 'required'
 				];
 				 
+
 					if($this->validate($rules)) {
 
 						$tabValidated = [
-							'nom'     => $this->request->getVar('nom'),
-							'prenom'    => $this->request->getVar('prenom'),
-							'annee_naissance'    => $this->request->getVar('annee'),
+							'nom'     			 => $this->request->getVar('nom'),
+							'prenom'    		 => $this->request->getVar('prenom'),
+							'annee_naissance'    => $this->request->getVar('annee')
+	
 						];
 						
 							if ($this->request->getVar('save') == 'update') {
+
+								$file = $this->request->getFile('photoArtiste');
+
+								$newName =$file->getRandomName();
+
+										if ($newName) {
+
+												$file->move(ROOTPATH.'/public/images', $newName) ;
+
+												$tabValidated['ArtisteImage'] = $newName ;
+
+												
+
+
+										//dd($file);
+
+											
+
+										}
 
 								$this->artistesModel->where('id',$id)->set($tabValidated)->update();
 

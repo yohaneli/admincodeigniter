@@ -54,10 +54,10 @@
                                         <td><small> <?php echo $tabRole['nom_role'] ; ?> </small></td>                                        
                                         <td>
                                             <div class="invoice-action">
-                                                <a href="<?php echo base_url('admin/role/edit/') ; ?>" class="invoice-action-edit">
+                                                <a href="<?php echo base_url('admin/role/edit/'.$films['id'].'/'.$artistes['id']) ; ?>" class="invoice-action-edit">
                                                     <i class="material-icons">edit</i>
                                                 </a>
-                                                <a href="<?php echo base_url('admin/role/delete/') ; ?>" class="invoice-action-view mr-4">
+                                                <a href="<?php echo base_url('admin/role/delete/'.$films['id'].'/'.$artistes['id']) ; ?>" class="invoice-action-view mr-4">
                                                     <i class="material-icons">delete</i>
                                                 </a>
                                             </div>

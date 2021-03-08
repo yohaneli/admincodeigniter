@@ -15,7 +15,7 @@ class Role extends BaseController
 
     public $artistesModel = null;
 
-    public $filmsModel = null;
+    public $filmModel = null;
 	
 	public function __construct() {
 
@@ -59,11 +59,65 @@ class Role extends BaseController
 
 	}
 
-	public function edit($id=null) {
+	public function edit($idFilm = null , $idActeur = null) {
+
+		
+		$listRoles = $this->rolesModel->findAll();
+		
+		$selectNomFilm = $this->filmModel->orderBy('titre','ASC')->findAll();
+
+		$selectNomActeur = $this->artistesModel->orderBy('nom','ASC')->findAll();
+		
+		$role = $this->rolesModel->where('id_film',$idFilm)->where('id_acteur',$idActeur)->first();
+
+		
+
+					if(!empty($this->request->getVar('save'))) {
+		
+					//Controle les données saisies dans le formulaire en établissant les règles de saisie
+					//exemple nom :  taille min : 3 caractères taille max : 20 caractères 
+					
+						$rules = [
+							'nomFilm'        => 'required',
+							'nomArtiste'     => 'required',
+							'nomRole'      => 'required'
+						];
+
+					
+						
+							if($this->validate($rules)) {
+
+								$tabValidated = [
+									'id_film'     => $this->request->getVar('nomFilm'),
+									'id_acteur'    => $this->request->getVar('nomArtiste'),
+									'nom_role'    => $this->request->getVar('nomRole'),
+								];
+								
+								
+
+									if ($this->request->getVar('save') == 'update') {
+
+										$this->rolesModel->where('id_film',$idFilm)->where('id_acteur',$idActeur)->set($tabValidated)->update();
+
+									} else {
+
+										$this->rolesModel->save($tabValidated);
+
+										//return redirect()->to('/admin/role/');
+
+									}
+
+							}
+
+		}
 
 		$data = [
 			'page_title' => 'Edit role' ,
-			'aff_menu'  => true
+			'aff_menu'  => true ,
+			'tabRoles' => $this->rolesModel ,
+			'films'  => $selectNomFilm ,
+			'artistes'  => $selectNomActeur ,
+			'roles'		=> $role
 		];
 
 		echo view('common/HeaderAdmin' , 	$data);

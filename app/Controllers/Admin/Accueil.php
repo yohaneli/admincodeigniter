@@ -18,7 +18,7 @@ class Accueil extends BaseController
 		
 		/** exemple de passage de variable a une vue */ 
 		$data = [
-			'page_title' => 'Connexion à wwww.site.com' ,
+			'page_title' => 'Accueil Admin' ,
 			'aff_menu'  => true
 		];
 
