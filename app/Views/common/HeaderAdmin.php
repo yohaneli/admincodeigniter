@@ -101,9 +101,11 @@
                         
                         <li><a href="<?php echo base_url("admin/artiste/edit"); ?>"><i class="material-icons">add_circle</i><span data-i18n="Edit">Ajouter</span></a>
                         </li>
+
                     </ul>
                 </div>
             </li>
+
             <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">movie_filter</i><span class="menu-title" data-i18n="User">Rôles</span><span class="badge badge pill purple float-right mr-10">3</span></a>
                 <div class="collapsible-body">
                     <ul class="collapsible collapsible-sub" data-collapsible="accordion">
@@ -112,7 +114,19 @@
                         
                         <li><a href="<?php echo base_url("admin/role/edit"); ?>"><i class="material-icons">add_circle</i><span data-i18n="Edit">Ajouter</span></a>
                         </li>
+
                     </ul>
+                </div>
+            </li>
+            <li class="bold"><a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)"><i class="material-icons">movie_filter</i><span class="menu-title" data-i18n="User">Films</span><span class="badge badge pill purple float-right mr-10">3</span></a>
+                <div class="collapsible-body">
+                    <ul class="collapsible collapsible-sub" data-collapsible="accordion">
+                        <li><a href="<?php echo base_url("admin/film/"); ?>"><i class="tiny material-icons">list</i><span data-i18n="List">Lister</span></a> <!--  class="active"  si le lien est actif -->
+                        </li>
+                        
+                        <li><a href="<?php echo base_url("admin/film/edit"); ?>"><i class="material-icons">add_circle</i><span data-i18n="Edit">Ajouter</span></a>
+                        </li>
+                        </ul>
                 </div>
             </li>
         </ul>
