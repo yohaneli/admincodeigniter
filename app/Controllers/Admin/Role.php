@@ -35,7 +35,10 @@ class Role extends BaseController
 			$listRoles = $this->rolesModel->orderBy('nom_role','ASC');									
 			//dd($listArtistes);
 
-			/** exemple de passage de variable a une vue */ 
+			/** ****************************************************************************************************
+			 * exemple de passage de variable a une vue *
+			 * tableau avec les clés pour gérer le nom de l'onglet, la pagination et les éléments qui ne proviennent
+			**************************************************************************************************** * */ 
 			$data = [
 				'page_title' => 'Accueil Admin' ,
 				'aff_menu'  => true ,
@@ -63,14 +66,28 @@ class Role extends BaseController
 
 		
 		$listRoles = $this->rolesModel->findAll();
+
+		/*****************************************************************************
+		Select * from Model
+		******************************************************************************/
 		
 		$selectNomFilm = $this->filmModel->orderBy('titre','ASC')->findAll();
 
+		/*****************************************************************************
+		Select titre from Film order by ASC
+		******************************************************************************/
+
 		$selectNomActeur = $this->artistesModel->orderBy('nom','ASC')->findAll();
+
+		/*****************************************************************************
+		Select nom from Artiste order by ASC 
+		******************************************************************************/
 		
 		$role = $this->rolesModel->where('id_film',$idFilm)->where('id_acteur',$idActeur)->first();
 
-		
+		/*****************************************************************************
+		Select * from Model where ID film correspond et ID Acteur correspond
+		******************************************************************************/		
 
 					if(!empty($this->request->getVar('save'))) {
 		

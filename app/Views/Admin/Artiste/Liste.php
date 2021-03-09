@@ -25,6 +25,7 @@
                                         <th>Nom</th>
                                         <th>Prénom</th>
                                         <th>Année de naissance</th>
+                                        <th>Image de l'artiste</th>
                                         <th>Nombre de films</th>
                                         
                                         <th>Action</th>
@@ -46,11 +47,19 @@
                                         <td><span class="invoice-amount"> <?php echo $tabArtiste['nom'] ; ?> </span></td>
                                         <td><small> <?php echo $tabArtiste['prenom'] ; ?> </small></td>
                                         <td><span class="invoice-customer"> <?php echo $tabArtiste['annee_naissance'] ; ?> </span></td>
+                                        <td> 
+                                        
+                                                <?php if (!empty($tabArtiste['ArtisteImage'])) { ?>
+
+                                                    <img src="/imagesmin/<?php echo $tabArtiste['ArtisteImage'] ; ?>">
+
+                                                <?php } ?>
+                                        
+                                         </td>
                                         <td>
                                             <span class="bullet green"></span>
                                             <small> </small>
                                         </td>
-                                        
                                         <td>
                                             <div class="invoice-action">
                                                 <a href="<?php echo base_url('admin/artiste/edit/'.$tabArtiste['id']) ; ?>" class="invoice-action-edit">

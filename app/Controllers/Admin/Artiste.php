@@ -108,7 +108,10 @@ class Artiste extends BaseController
 
 												$tabValidated['ArtisteImage'] = $newName ;
 
-												
+												$image = \Config\Services::image()
+													->withFile(ROOTPATH.'/public/images/'.$newName)
+													->fit(50, 50, 'center')
+													->save(ROOTPATH.'/public/imagesmin/'.$newName);
 
 
 										//dd($file);

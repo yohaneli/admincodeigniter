@@ -71,21 +71,21 @@
                                             
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input type="text" name="nom" value="<?php echo $artiste['nom'] ; ?>">
+                                                    <input type="text" name="nom" value="<?php echo $artiste['nom'] ; ?>" required >
                                                     <label for="fn">Nom de l'artiste</label>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input type="text" name="prenom" value="<?php echo $artiste['prenom'] ; ?>">
+                                                    <input type="text" name="prenom" value="<?php echo $artiste['prenom'] ; ?>" required >
                                                     <label for="fn">Prénom de l'artiste</label>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="input-field col s12">
-                                                    <input type="number" name="annee" value="<?php echo $artiste['annee_naissance'] ; ?>">
+                                                    <input type="number" name="annee" value="<?php echo $artiste['annee_naissance'] ; ?>" required >
                                                     <label for="fn">Année de naissance de l'artiste</label>
                                                 </div>
                                             </div>
