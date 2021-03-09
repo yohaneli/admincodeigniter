@@ -142,9 +142,9 @@
             
             <?php echo "Résumé : " .substr($film['resume'],0,30)."..."; ?>
             <br><br><br>
-            <?php echo "Réalisateur : ".$artistes['prenom']." ".$artistes['nom'] ; ?>
+            <a href="<?php echo base_url('home/index/realisateur/'.$film['id_realisateur']) ; ?>"><?php echo "Réalisateur : ".$artistes['prenom']." ".$artistes['nom'] ; ?></a>
             <br><br>
-            <a href="<?php echo base_url() ; ?>"><?php echo "Genre : ".$film['genre'] ; ?></a>
+            <a href="<?php echo base_url('home/index/genre/'.$film['id_realisateur']) ; ?>"><?php echo "Genre : ".$film['genre'] ; ?></a>
           </div>
           <div class="card-action border-non center">
             <a class="waves-effect waves-light btn gradient-45deg-red-pink box-shadow">+ d'infos</a>

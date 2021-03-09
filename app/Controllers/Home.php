@@ -16,6 +16,8 @@ class Home extends BaseController
 	public $artistesModel = null;
 
     public $filmModel = null;
+
+
 	
 		public function __construct() {
 
@@ -25,17 +27,27 @@ class Home extends BaseController
 
 		}
 	
-		public function index() {
+		public function index($type=null,$elementSearched=null) {
 		
+			$maRecherche = $this->filmModel->orderBy('id','DESC')->paginate(9);
+
+				if (!empty($type) && !empty($elementSearched)) {
+
+						$maRecherche = $this->filmModel->where('id_realisateur',$elementSearched)->orderBy('id','DESC')->paginate(9);
+
+						//$maRecherche = $this->filmModel->where('genre',$elementSearched)->orderBy('id','DESC')->paginate(9);
+
+				}
+
 			$listFilm = $this->filmModel->findAll();
-			$listFilm = $this->filmModel->orderBy('id','DESC');
+			
 
 			//dd($listFilm);
 
 			$data = [
 				'page_title' => 'Accueil Admin' ,
 				'aff_menu'  => true ,
-				'tabFilm' => $this->filmModel->paginate(9),
+				'tabFilm' => $maRecherche,
 				'pager' => $this->filmModel->pager,
                 'artistesModel' => $this->artistesModel,
                 
