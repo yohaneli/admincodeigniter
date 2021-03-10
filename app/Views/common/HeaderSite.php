@@ -20,7 +20,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, expresponsive and based on Material Design by Google.">
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template, eCommerce dashboard, analytic dashboard">
     <meta name="author" content="ThemeSelect">
-    <title>Cards Extended | Materialize - Material Design Admin Template</title>
+    <title>Projet Code Igniter</title>
     <link rel="apple-touch-icon" href="../../../app-assets/images/favicon/apple-touch-icon-152x152.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/favicon/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -47,6 +47,9 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
               <input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Rechercher dans le Video Club" data-search="template-list">
               <ul class="search-list collection display-none"></ul>
+              <button class="btn waves-effect waves-light" type="submit" name="action">Rechercher
+                        
+                      </button>
             </div>
             <ul class="navbar-list right">
               <li class="dropdown-language"><a class="waves-effect waves-block waves-light translation-button" href="#" data-target="translation-dropdown"><span class="flag-icon flag-icon-gb"></span></a></li>
@@ -99,7 +102,10 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="nav-wrapper">
               <form id="navbarForm">
                 <div class="input-field search-input-sm">
-                  <input class="search-box-sm mb-0" type="search" required="" id="search" placeholder="Explore Materialize" data-search="template-list">
+                  <input class="search-box-sm mb-0" type="search" required="" id="search" placeholder="Rechercher dans le video club" data-search="template-list">
+              <button class="btn waves-effect waves-light" type="submit" name="action">Rechercher
+                        
+                      </button>
                   <label class="label-icon" for="search"><i class="material-icons search-sm-icon">search</i></label><i class="material-icons search-sm-close">close</i>
                   <ul class="search-list collection search-list-sm display-none"></ul>
                 </div>
